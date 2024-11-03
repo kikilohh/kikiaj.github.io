@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <style>
+   h1 {
+    margin-bottom: 30px;
+   }
+   .pricing-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    }
+    .card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s;
+    }
+    .card:hover {
+    transform: translateY(-5px);
+    }
+    .card-image {
+    width: 100%;
+    border-radius: 10px;
+    }
+    .card-title {
+    font-size: 1.5em;
+    margin: 10px 0;
+    }
+    .card-price {
+    font-size: 1.2em;
+    color: #27ae60;
+    margin: 10px 0;
+    }
+    .card-description {
+    color: #666;
+    margin: 10px 0;
+    }
+    .card-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    }
+    .card-button:hover {
+    background-color: #2980b9;
+    }
+    .navbar-nav a {
+      font-size: 15px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .navbar-light .navbar-brand {
+      color: #000;
+      font-size: 25px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    .navbar-light .navbar-brand:focus,
+    .navbar-light .navbar-brand:hover {
+      color: #000;
+    }
+    .navbar-light .navbar-nav .nav-link {
+      color: #000;
+    } 
+    .carousel {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* Set the carousel height to full viewport height */
+        margin: auto;
+        overflow: hidden;
+    }
+    .carousel-inner {
+        display: flex;
+        height: 100%; /* Make sure the inner container takes full height */
+    }
+    .carousel-item {
+        min-width: 100%;
+        height: 100%; /* Ensure each item takes full height */
+        transition: opacity 0.5s ease-in-out;
+    }
+    .carousel-item img {
+        width: 100%;
+        height: 100%; /* Ensure the image takes the full height */
+        object-fit: cover; /* Cover the area without distorting the image */
+    }
+    .carousel-control {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+    .carousel-caption {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset by half its width and height */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    }
+    .carousel-caption .btn {
+    margin-top: 10px; /* Space between text and button */
+    padding: 10px 20px; /* Adjust button padding */
+    }
+    .carousel-caption h5 {
+    font-size: 1.5rem; /* Adjust font size */
+    margin-bottom: 0.5rem; /* Space between title and description */
+    } 
+    .carousel-caption p {
+    font-size: 1rem; /* Adjust font size for description */
+    }
+    .prev {
+        left: 10px;
+    }
+    .next {
+        right: 10px;
+    }
+    .carousel-indicators {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .dot.active {
+        background-color: #717171;
+    }
+    .w-100 {
+      height: 100vh;
+    }
+    .testimonial-item {
+      text-align: center;
+      padding: 20px;
+    }
+    .testimonial-img {
+      width: 100px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    .stars i {
+      color: #ffcc00;
+    }
+
+   
+    .about {
+      padding-top: 50px; 
+      padding-bottom: 50px;
+      margin-bottom: 50px; 
+    }
+
+    .testimonial {
+      padding-top: 30px;
+    }
+
+    .contact {
+      padding-top: 60px;
+    }
+</style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><span class="text-warning">PT</span>MSPRO</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimoni">Testimoni</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="carousel">
+    <section id="home" class="home section-padding"></section>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="images/project-1-img/home-1.jpg" alt="Image 1">
+            <div class="carousel-caption">
+                <h5>Pemesanan Rumah Terbaik</h5>
+                <p>Temukan rumah impian Anda! Lihat katalog pemesanan rumah kami yang menampilkan berbagai pilihan hunian berkualitas.</p>
+                <button class="btn btn-primary" onclick="location.href='link-to-detail-page-1.html'">Baca Selengkapnya</button>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="images/project-1-img/home-2.jpg" alt="Image 2">
+            <div class="carousel-caption">
+                <h5>Desain Modern dengan Harga Terjangkau</h5>
+                <p>Katalog kami menawarkan desain modern dengan harga terjangkau, cocok untuk setiap keluarga.</p>
+                <button class="btn btn-primary" onclick="location.href='link-to-detail-page-2.html'">Baca Selengkapnya</button>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="images/project-1-img/home-3.jpg" alt="Image 3">
+            <div class="carousel-caption">
+                <h5>Pemesanan Rumah Mudah dan lebih Cepat</h5> 
+                <p>Pemesanan rumah kini lebih mudah dan cepat! Hubungi kami untuk info lebih lanjut.</p>
+                <button class="btn btn-primary" onclick="location.href='link-to-detail-page-3.html'">Baca Selengkapnya</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
+    <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
+    <div class="carousel-indicators">
+        <span class="dot active" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+</div>
+</section>
+
+<script>
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        const items = document.querySelectorAll('.carousel-item');
+        items.forEach((item, i) => {
+            item.style.display = (i === index) ? 'block' : 'none';
+        });
+
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, i) => {
+            dot.className = dot.className.replace(' active', '');
+            if (i === index) {
+                dot.className += ' active';
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % document.querySelectorAll('.carousel-item').length;
+        showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + document.querySelectorAll('.carousel-item').length) % document.querySelectorAll('.carousel-item').length;
+        showSlide(currentIndex);
+    }
+
+    function currentSlide(index) {
+        currentIndex = index;
+        showSlide(currentIndex);
+    }
+
+    showSlide(currentIndex);
+</script>
+
+  <!-- About Section -->
+  <section id="about" class="about section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-12 col-12">
+          <div class="about-img">
+            <img src="images/project-1-img/about.jpg" alt="" class="img-fluid">
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
+          <div class="about-text">
+            <h2>Kami Menyediakan Kualitas Terbaik <br> Dalam Pemesanan Rumah</h2>
+            <p>Katalog kami adalah pintu gerbang Anda menuju berbagai pilihan rumah yang dirancang khusus untuk memenuhi kebutuhan dan anggaran Anda. Temukan hunian ideal Anda hari ini dan nikmati pengalaman yang tak tertandingi dalam pemesanan rumah! <br><br>
+            Dari desain modern yang menawan hingga gaya tradisional yang klasik, setiap rumah dalam koleksi kami dibangun dengan perhatian penuh terhadap detail dan standar kualitas tertinggi. Kami percaya bahwa rumah bukan hanya sekadar tempat tinggal; rumah adalah tempat di mana kenangan indah diciptakan dan masa depan dibangun. Jadi, percayakan kebutuhan hunian Anda kepada kami, dan izinkan kami membantu Anda menemukan rumah impian yang sempurna untuk Anda dan keluarga.</p>            
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="pricing section-padding">
+    <div class="container">
+      <h1>Catalog Pemesanan Rumah</h1>
+      <div class="pricing-cards">
+          <div class="card">
+              <img src="images/project-1-img/images.jpg" alt="Menu 1" class="card-image">
+              <h2 class="card-title">Hunian Idaman 1</h2>
+              <p class="card-price">Rp 50.000</p>
+              <p class="card-description">Nikmati kenyamanan dan keindahan dalam setiap sudut hunian ini. Desain modern untuk gaya hidup yang lebih baik.</p>
+              <button class="card-button">Pesan Sekarang</button>
+          </div>
+          <div class="card">
+              <img src="images/project-1-img/2.jpg" alt="Menu 2" class="card-image">
+              <h2 class="card-title">Hunian Idaman 2</h2>
+              <p class="card-price">Rp 75.000</p>
+              <p class="card-description">Hunian ini menawarkan ruang luas dan pencahayaan alami yang sempurna, ideal untuk keluarga Anda.</p>
+              <button class="card-button">Pesan Sekarang</button>
+          </div>
+          <div class="card">
+              <img src="images/project-1-img/ruma.jpg" alt="Menu 3" class="card-image">
+              <h2 class="card-title">Hunian Idaman 3</h2>
+              <p class="card-price">Rp 100.000</p>
+              <p class="card-description">Rasakan kemewahan dalam desain yang elegan dan fungsional, menciptakan tempat tinggal yang nyaman.</p>
+              <button class="card-button">Pesan Sekarang</button>
+          </div>
+      </div>
+  </div>
+  
+
+  <!-- Testimonial Section -->
+  <section id="testimoni" class="testimonial section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="text-center mb-4">Testimoni Pelanggan</h2>
+        </div>
+        <div class="col-lg-4 col-md-4 testimonial-item">
+          <img src="images/project-1-img/team-2.jpg" alt="Testimonial 1" class="testimonial-img">
+          <h4>John Doe</h4>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p>"Pengalaman membeli rumah sangat memuaskan! Tim sangat profesional dan membantu."</p>
+        </div>
+        <div class="col-lg-4 col-md-4 testimonial-item">
+          <img src="images/project-1-img/team-1.jpg" alt="Testimonial 2" class="testimonial-img">
+          <h4>Jane Smith</h4>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p>"Katalog hunian sangat beragam! Kami menemukan rumah impian kami dengan mudah."</p>
+        </div>
+        <div class="col-lg-4 col-md-4 testimonial-item">
+          <img src="images/project-1-img/team-3.jpg" alt="Testimonial 3" class="testimonial-img">
+          <h4>Michael Lee</h4>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p>"Proses pemesanan yang sangat mudah dan cepat! Sangat merekomendasikan."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Contact Section -->
+<section id="contact" class="contact section-padding">
+  <div class="container">
+    <h2 class="text-center">Contact Us</h2>
+    <form>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Your Name">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Your Email">
+      </div>
+      <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <input type="text" class="form-control" id="address" placeholder="Your Address">
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" rows="3" placeholder="Your Message"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+    <div class="mt-5">
+      <h3>Contact Information</h3>
+      <p><strong>Email:</strong> ptmspro@gmail.com</p>
+      <p><strong>Address:</strong> Jl. Pulau Damar, Harapan Jaya, Kec. Sukarame, Kota Bandar Lampung, Lampung</p>
+    </div>
+    <div class="mt-4">
+      <h3>Our Location</h3>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15889.230278971472!2d105.2897104!3d-5.3699769!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40db00431438b9%3A0xd42db2a1b9cfcb7!2sPT.MSPRO%20NEW!5e0!3m2!1sid!2sid!4v1730601397867!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <div>
+      <a href="#" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="#" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="#" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="#" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="container text-center text-md-start mt-5">
+      <div class="row mt-3">
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>PT MSPRO
+          </h6>
+          <p>
+            Kami menyediakan katalog pemesanan rumah yang menampilkan berbagai pilihan hunian berkualitas.
+          </p>
+        </div>
+
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
+            Produk
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Katalog Rumah</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Konsultasi</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Desain Interior</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Pembiayaan</a>
+          </p>
+        </div>
+  
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
+            Tautan Berguna
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Harga</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Pengaturan</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Pesanan</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Bantuan</a>
+          </p>
+        </div>
+
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Kontak</h6>
+          <p><i class="fas fa-home me-3"></i> Bandar Lampung, Indonesia</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            info@ptmspro.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> +62 812-3456-7890</p>
+          <p><i class="fas fa-print me-3"></i> +62 812-3456-7891</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2024 Hak Cipta:
+    <a class="text-reset fw-bold">Muhammad Rizki Pratama</a>
+  </div>
+</footer>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybLlq1nS3e17Rt0BzGfjIApHdzz3mUSz1bZ8UuR29bCl/c1uH" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-2/3W8fH9lZtD9+YkjF54Wh6blwK6s7W1O2/haeErQALxUBfY4h8T30XhXZyA2R/y" crossorigin="anonymous"></script>
+</body>
+</html>
